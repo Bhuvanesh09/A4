@@ -4,17 +4,15 @@ from django.http import HttpResponse , HttpRequest
 from .models import Quiz
 
 def index(request):
-    return HttpResponse("Yo boi")
+    return HttpResponse("Hello!  Surver up and running , kindly open /introduction to enter the lab.")
 # Create your views here.
+
+
 def introduction(request):
     return render(request, 'Introduction.html')
 
-
 def experiment(request):
-    assert isinstance(request, HttpRequest)
-    return render(request, 'Experiment.html', {
-        'questn': Quiz.objects.all(),
-    })
+    return render(request, 'Experiment.html')
 
 
 def manual(request):
@@ -26,7 +24,11 @@ def objective(request):
 
 
 def quizzes(request):
-    return render(request, 'Quizzes.html')
+    assert isinstance(request, HttpRequest)
+    context = {
+        'questn': Quiz.objects.all(),
+    }
+    return render(request, 'Quizzes.html' , context)
 
 
 def procedure(request):
@@ -37,4 +39,7 @@ def feedback(request):
 
 def furtherReading(request):
     return render(request, 'FurtherReadings.html')
+
+def theory(request):
+    return render(request, 'Theory.html')
 

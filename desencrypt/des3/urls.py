@@ -13,4 +13,5 @@ urlpatterns = [
 	url(r'^quizzes/?$', views.quizzes, name='des3.quizzes'),
 	url(r'^procedure/?$', views.procedure, name='des3.procedure'),
 	url(r'^furtherReading/?$', views.furtherReading, name='des3.furtherReading'),
+	url(r'^theory/?$',views.theory,name='des3.theory'),
 ]
